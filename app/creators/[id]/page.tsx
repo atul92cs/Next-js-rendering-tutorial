@@ -2,7 +2,7 @@ import axios from "axios";
 import Image from "next/image";
 
 const axiosClient=axios.create({
-    baseURL:`${process.env.creatordetailurl}`,
+    baseURL:`${process.env.NEXT_PUBLIC_creatordetailurl}`,
       headers:{
         Accept:'application/json'
       }
@@ -25,7 +25,7 @@ export default async function GetCreatorDetails({params}:{
 }){
     let {id}=await params;
     const creatorId=parseInt(id);
-    const creator:Creator=(await axiosClient.get(`/${creatorId}?key=${process.env.api_key}`)).data;
+    const creator:Creator=(await axiosClient.get(`/${creatorId}?key=${process.env.NEXT_PUBLIC_api_key}`)).data;
     
     return(
           <div className="min-h-screen bg-gray-950 text-white p-6">

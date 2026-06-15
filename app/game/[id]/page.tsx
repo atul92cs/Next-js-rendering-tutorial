@@ -40,7 +40,7 @@ export default async function gameDetails({params}:{
 }){
   let {id}=await params;
   const  gameid=parseInt(id);
-  const Game:GameDetails=(await axiosClient.get(`/${gameid}?key=${process.env.api_key}`)).data;
+  const Game:GameDetails=(await axiosClient.get(`/${gameid}?key=${process.env.NEXT_PUBLIC_api_key}`)).data;
   
   return(
     <Suspense fallback={<div>Loading...</div>}>
